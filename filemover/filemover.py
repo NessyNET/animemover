@@ -14,11 +14,11 @@ def main():
     output = '/output'
     logger.info("Animemover has been started")
     while True:
-        time.sleep(5*60)
         for filepath in os.listdir(input):
             source = os.path.join(os.getcwd(), input, filepath)
             if not os.path.isdir(source) and os.path.splitext(filepath)[1] in allowed_ext:
                 movefile(source, output, filepath)
+        time.sleep(5*60)
 
 
 def movefile(source, output, filepath):
