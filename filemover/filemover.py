@@ -1,5 +1,6 @@
 import os
 import logging
+import shutil
 import time
 
 import fileparser
@@ -30,7 +31,7 @@ def movefile(source, output, filepath):
             os.mkdir(target)
         if os.path.isdir(target):
             logger.info('Moving anime %s :: %s', anime, filepath)
-            os.rename(source, os.path.join(target, filepath))
+            shutil.move(source, os.path.join(target, filepath))
         else:
             logger.error("Unable to move [%s] but the target location [%s] isn't a directory", filepath,
                          target)
